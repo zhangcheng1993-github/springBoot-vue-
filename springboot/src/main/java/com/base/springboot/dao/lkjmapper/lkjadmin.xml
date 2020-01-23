@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="lkjadmin">
+
+    <select id="getUserList" resultType="java.util.Map" parameterType="java.util.Map">
+        SELECT
+            T.PK_ID AS id,
+            T.NAME AS name
+        FROM
+            USER T
+        WHERE
+            T.PK_ID=#{id}
+    </select>
+
+
+    <insert id="insertUser" parameterType="com.base.springboot.entity.User">
+        insert into USER(NAME) VALUE (#{name})
+    </insert>
+
+</mapper>

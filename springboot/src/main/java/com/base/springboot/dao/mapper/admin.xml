@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="admin">
+
+    <select id="getUserList" resultType="java.util.Map" parameterType="java.util.Map">
+        SELECT
+            T.PK_ID AS id,
+            T.NAME AS name
+        FROM
+            USER T
+        WHERE
+            1=1
+        <if test="id!=null">
+            AND T.PK_ID=#{id}
+        </if>
+    </select>
+
+</mapper>
